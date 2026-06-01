@@ -1,4 +1,4 @@
-emailjs.init("PUBLIC_KEY");
+emailjs.init("aDo2v1Q46NLhqHvgH");
 
 document
 .getElementById("contact-form")
@@ -7,8 +7,8 @@ document
     e.preventDefault();
 
     emailjs.sendForm(
-        "SERVICE_ID",
-        "TEMPLATE_ID",
+        "service_zp45lau",
+        "template_f3bjunj",
         this
     )
     .then(function(){
