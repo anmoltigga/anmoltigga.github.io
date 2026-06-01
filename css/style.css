@@ -1,4 +1,287 @@
+:root{
+    --primary:#2563eb;
+    --secondary:#7c3aed;
+    --accent:#06b6d4;
+
+    --bg:#f8fafc;
+    --card:#ffffff;
+
+    --text:#0f172a;
+    --muted:#64748b;
+}
 .dark{
-background:#121212;
-color:white;
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+}
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+
+    padding:20px;
+
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.dark nav{
+    background:rgba(15,23,42,.85);
+}
+#hero{
+    min-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
+    color:white;
+
+    padding:40px;
+}
+.profile-img{
+    width:180px;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid white;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+#hero h1{
+    font-size:4rem;
+    font-weight:700;
+}
+#hero h3{
+    font-size:1.5rem;
+    margin:10px 0;
+}
+.hero-buttons a{
+    display:inline-block;
+
+    margin:15px 10px;
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+.hero-buttons a:first-child{
+    background:white;
+    color:#2563eb;
+}
+.hero-buttons a:hover{
+    transform:translateY(-3px);
+}
+section{
+    max-width:1200px;
+    margin:auto;
+
+    padding:90px 30px;
+}
+section h2{
+    text-align:center;
+
+    font-size:2.3rem;
+
+    margin-bottom:40px;
+
+    color:var(--primary);
+}
+.card,
+.project-card,
+.publication-card{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+.card:hover,
+.project-card:hover{
+    transform:translateY(-6px);
+}
+#metrics{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.metric-card{
+
+    width:250px;
+
+    text-align:center;
+
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+}
+.metric-card h3{
+    font-size:3rem;
+}
+.skills-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+.skills-grid span{
+    padding:12px 18px;
+
+    background:#dbeafe;
+
+    color:#1e40af;
+
+    border-radius:30px;
+
+    font-weight:600;
+}
+.dark .skills-grid span{
+    background:#1e3a8a;
+    color:white;
+}
+.publication-card{
+    border-left:5px solid var(--primary);
+}
+.repo{
+    padding:20px;
+
+    background:var(--card);
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+}
+.news-card{
+
+    border-left:4px solid var(--accent);
+
+    padding-left:20px;
+
+    margin-bottom:25px;
+}
+#contact-form{
+    max-width:700px;
+    margin:auto;
+}
+#contact-form input,
+#contact-form textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+}
+#contact-form button{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+#theme-toggle{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    background:var(--primary);
+
+    color:white;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+@media(max-width:768px){
+
+    #hero h1{
+        font-size:2.5rem;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .metric-card{
+        width:100%;
+    }
 }
