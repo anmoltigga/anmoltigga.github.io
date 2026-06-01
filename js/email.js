@@ -1,4 +1,4 @@
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("PUBLIC_KEY");
 
 document
 .getElementById("contact-form")
@@ -7,18 +7,16 @@ document
     e.preventDefault();
 
     emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "SERVICE_ID",
+        "TEMPLATE_ID",
         this
     )
-    .then(() => {
+    .then(function(){
 
-        alert("Message Sent Successfully!");
-
-        this.reset();
+        alert("Message sent successfully!");
 
     })
-    .catch(error => {
+    .catch(function(error){
 
         console.error(error);
 
