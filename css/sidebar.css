@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Sidebar navigation layout
+   Loaded AFTER css/style.css so these rules take priority for layout/nav.
+   Colors mostly use `inherit`/`currentColor` so it keeps working with
+   whatever light/dark theme style.css already sets on <body>.
+   ========================================================================== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ---- Sidebar ---- */
+nav.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 2rem 1.25rem;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(128, 128, 128, 0.25);
+  overflow-y: auto;
+  z-index: 100;
+}
+
+nav.sidebar a {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  opacity: 0.7;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+nav.sidebar a:hover,
+nav.sidebar a.active {
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.12);
+  border-left-color: currentColor;
+  transform: translateX(4px);
+}
+
+/* ---- Main content area ---- */
+main {
+  margin-left: 220px;
+  flex: 1;
+  min-height: 100vh;
+  padding: 2rem 3rem 4rem;
+  box-sizing: border-box;
+}
+
+/* Hero always visible, sits above whichever section is active */
+#hero {
+  margin-bottom: 2.5rem;
+}
+
+/* Only one non-hero section shown at a time */
+main section.content-section {
+  display: none;
+}
+
+main section.content-section.active {
+  display: block;
+  animation: sidebar-fade-in 0.25s ease;
+}
+
+@keyframes sidebar-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Theme toggle button: keep it clear of the sidebar ---- */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 110;
+}
+
+/* ---- Small screens: collapse sidebar into a horizontal top bar ---- */
+@media (max-width: 900px) {
+  body {
+    display: block;
+  }
+
+  nav.sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-right: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 1rem;
+  }
+
+  nav.sidebar a {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  nav.sidebar a:hover,
+  nav.sidebar a.active {
+    transform: none;
+    border-bottom-color: currentColor;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
