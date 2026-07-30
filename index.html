@@ -185,25 +185,71 @@ May 2019 – July 2019
 <section id="metrics">
 <h2>Research Impact</h2>
 <div class="metric-card">
-<h3 id="citations">Loading...</h3>
+<h3 id="citations">—</h3>
 <p>Citations</p>
 </div>
 <div class="metric-card">
-<h3 id="hindex">Loading...</h3>
+<h3 id="hindex">—</h3>
 <p>h-index</p>
 </div>
 <div class="metric-card">
-<h3 id="i10index">Loading...</h3>
+<h3 id="i10index">—</h3>
 <p>i10-index</p>
 </div>
+<p class="metrics-note">
+Updated manually &mdash;
+<a href="https://scholar.google.com/citations?user=3LIJSSEAAAAJ&hl=en" target="_blank">
+view the live, up-to-date numbers on Google Scholar
+</a>
+</p>
 </section>
 
 <!-- PUBLICATIONS SECTION -->
+<!--
+  Nothing in js/main.js or js/scholar.js ever populated this section before
+  (it was permanently stuck on "Loading publications..."). Google Scholar has
+  no public, key-free API to pull from safely in client-side JS, so this is a
+  plain, hand-maintained list instead — replace each [placeholder] with your
+  real publication details and links.
+-->
 <section id="publications">
 <h2>Publications</h2>
 <div id="publication-list">
-Loading publications...
+
+<div class="publication-card">
+<h3 class="pub-title">[Paper Title Goes Here]</h3>
+<p class="pub-meta">[Author list], <strong>Anmol Tigga</strong> &mdash; [Conference / Journal Name], [Year]</p>
+<div class="pub-links">
+<a href="#" target="_blank" rel="noopener">DOI</a>
+<a href="#" target="_blank" rel="noopener">PDF</a>
 </div>
+</div>
+
+<div class="publication-card">
+<h3 class="pub-title">[Paper Title Goes Here]</h3>
+<p class="pub-meta">[Author list], <strong>Anmol Tigga</strong> &mdash; [Conference / Journal Name], [Year]</p>
+<div class="pub-links">
+<a href="#" target="_blank" rel="noopener">DOI</a>
+<a href="#" target="_blank" rel="noopener">PDF</a>
+</div>
+</div>
+
+<div class="publication-card">
+<h3 class="pub-title">[Paper Title Goes Here]</h3>
+<p class="pub-meta">[Author list], <strong>Anmol Tigga</strong> &mdash; [Conference / Journal Name], [Year]</p>
+<div class="pub-links">
+<a href="#" target="_blank" rel="noopener">DOI</a>
+<a href="#" target="_blank" rel="noopener">PDF</a>
+</div>
+</div>
+
+</div>
+<p class="metrics-note">
+See the full, up-to-date list on
+<a href="https://scholar.google.com/citations?user=3LIJSSEAAAAJ&hl=en" target="_blank">
+Google Scholar
+</a>
+</p>
 </section>
 
 <!-- GITHUB SECTION -->
@@ -247,28 +293,45 @@ Download CV
 <!-- CONTACT SECTION -->
 <section id="contact">
 <h2>Contact</h2>
-<p>
-Email:
-<a href="mailto:tiggaanmol8@gmail.com">
-tiggaanmol8@gmail.com
-</a>
-</p>
-<p>
-LinkedIn:
-<a href="https://www.linkedin.com/in/anmol-tigga-4862b617a/"
-target="_blank">
-linkedin.com/in/anmol-tigga-4862b617a/
-</a>
-</p>
-<p>
-Google Scholar:
-<a href="https://scholar.google.com/citations?user=3LIJSSEAAAAJ&hl=en"
-target="_blank">
-Scholar Profile
-</a>
-</p>
 
-<form id="contact-form">
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<a class="contact-item" href="mailto:tiggaanmol8@gmail.com">
+<span class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+</span>
+<span class="contact-text">
+<strong>Email</strong>
+<small>tiggaanmol8@gmail.com</small>
+</span>
+</a>
+
+<a class="contact-item" href="https://www.linkedin.com/in/anmol-tigga-4862b617a/" target="_blank" rel="noopener">
+<span class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+</span>
+<span class="contact-text">
+<strong>LinkedIn</strong>
+<small>linkedin.com/in/anmol-tigga-4862b617a</small>
+</span>
+</a>
+
+<a class="contact-item" href="https://scholar.google.com/citations?user=3LIJSSEAAAAJ&hl=en" target="_blank" rel="noopener">
+<span class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+</span>
+<span class="contact-text">
+<strong>Google Scholar</strong>
+<small>View publication profile</small>
+</span>
+</a>
+
+</div>
+
+<form id="contact-form" class="contact-form">
+<div class="form-row">
 <input type="text"
 name="user_name"
 placeholder="Name"
@@ -277,6 +340,7 @@ required>
 name="user_email"
 placeholder="Email"
 required>
+</div>
 <textarea
 name="message"
 placeholder="Message"
@@ -284,7 +348,10 @@ required></textarea>
 <button type="submit">
 Send Message
 </button>
+<p id="form-status" class="form-status"></p>
 </form>
+
+</div>
 </section>
 
 </main>
